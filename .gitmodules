@@ -1,3 +1,3 @@
-[submodule "backend"]
-	path = backend
+[submodule "groq"]
+	path = groq
 	url = https://github.com/jeighmz/groq.git
