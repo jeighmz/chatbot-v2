@@ -1,3 +1,6 @@
 [submodule "groq"]
 	path = groq
 	url = https://github.com/jeighmz/groq.git
+[submodule "backend"]
+	path = backend
+	url = https://github.com/jeighmz/groq.git
