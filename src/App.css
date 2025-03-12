@@ -1,0 +1,309 @@
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+
+.youtube-metadata {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-family: "Arial", sans-serif;
+}
+
+.youtube-metadata strong {
+  font-size: 16px;
+}
+
+.youtube-metadata span {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Chatbot container */
+.chatbot {
+  width: 400px;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Chat window */
+.chat-window {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* User and bot messages */
+.message {
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  height: max-content;
+  max-width: 80%;
+  padding: 10px;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.markdown-content {
+  max-height: fit-content; /* Adjust height as needed */
+  overflow: hidden; /* Hides overflow content */
+  line-height: 1.2; /* Adjust line spacing */
+  font-size: 14px; /* Reduce font size if needed */
+  position: relative;
+  top: 0px;
+}
+
+.message.user {
+  background-color: #cce7ff;
+  width: max-content;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin-left: auto;
+  text-align: left;
+}
+/* Input area */
+.input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.input-area input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.input-area button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-area button:disabled {
+  background-color: #ccc;
+}
+
+.chat-placeholder {
+  text-align: center;
+  color: #aaa;
+  margin: 10px 0;
+}
+
+.suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.suggestion-btn {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.suggestion-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Loading indicator */
+.loading {
+  text-align: center;
+  padding: 10px;
+  font-style: italic;
+  color: #999;
+}
+
+.message-block {
+  margin-bottom: 10px;
+}
+.memories-panel {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  padding: 4px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.memory-list {
+  margin: 4px 0 0 16px;
+  padding: 0;
+  list-style-type: decimal;
+}
+
+.memory-list li {
+  font-size: 0.8em;
+  margin-bottom: 2px;
+}
+
+
+/* General memory message style */
+.memory-block {
+  margin: 4px 0;
+}
+
+/* Container for a single memory message */
+.memory-container {
+  background-color: #f9f9f9;
+  border-left: 2px solid #007bff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.8em;
+  max-width: 70%;
+}
+
+/* Memory header (shows memory number and collapse/expand button) */
+.memory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Collapse button styling */
+.collapse-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+/* Memory content when expanded */
+.memory-content {
+  margin-top: 4px;
+  padding-left: 4px;
+}
+
+.sender-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.sender-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.sender-name {
+  font-size: 14px;
+}
+
+
+.model-list {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.model-list-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.model-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.model-name {
+  font-weight: bold;
+}
+
+.model-owner {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.selected-models {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.selected-models ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.center-section {
+  display: flex;
+  justify-content: center;
+}
+
+.message {
+  position: relative;
+  border-radius: 8px;
+}
+
+.collapse-button {
+  position: absolute;
+  top: -25px;
+  right: -30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.collapse-button:hover {
+  color: #000;
+}
+
+.collapsed-message {
+  font-style: italic;
+  color: #999;
+}
