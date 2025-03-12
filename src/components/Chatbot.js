@@ -8,8 +8,6 @@ const Chatbot = ({ selectedModels }) => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/;
-
   const addMessage = (message, sender, isMemory = false) => {
     setMessages((prevMessages) => [
       ...prevMessages,
@@ -21,19 +19,6 @@ const Chatbot = ({ selectedModels }) => {
     const updatedMessages = [...messages];
     updatedMessages[index].collapsed = !updatedMessages[index].collapsed;
     setMessages(updatedMessages);
-  };
-
-  const fetchYouTubeTranscript = async (videoId) => {
-    try {
-      const response = await axios.post("http://localhost:5001/api/youtube-transcript", {
-        videoId,
-      });
-
-      return response.data.transcript || null;
-    } catch (error) {
-      console.error("Error fetching YouTube transcript:", error);
-      return null;
-    }
   };
 
   const sendMessage = async (message) => {
