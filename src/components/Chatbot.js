@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import "../App.css"; // Ensure you include your CSS file
@@ -59,12 +59,12 @@ const Chatbot = ({ selectedModels, onSendMessage }) => {
     return companyMap[modelName] || "system";
   };
 
-  const addMessage = (message, sender, isMemory = false) => {
+  const addMessage = useCallback((message, sender, isMemory = false) => {
     setMessages((prevMessages) => [
       ...prevMessages,
       { sender, message, isMemory, collapsed: isMemory ? true : false },
     ]);
-  };
+  }, []);
 
   const toggleCollapse = (index) => {
     const updatedMessages = [...messages];
@@ -72,7 +72,7 @@ const Chatbot = ({ selectedModels, onSendMessage }) => {
     setMessages(updatedMessages);
   };
 
-  const updateQueryStats = (queryTime, tokenUsage, promptTokens, completionTokens, chunksSent) => {
+  const updateQueryStats = useCallback((queryTime, tokenUsage, promptTokens, completionTokens, chunksSent) => {
     setQueryStats(prev => ({
       lastQueryTime: queryTime,
       lastTokenUsage: tokenUsage,
@@ -85,9 +85,9 @@ const Chatbot = ({ selectedModels, onSendMessage }) => {
       totalCompletionTokens: prev.totalCompletionTokens + (completionTokens || 0),
       totalChunksSent: prev.totalChunksSent + (chunksSent || 0)
     }));
-  };
+  }, []);
 
-  const sendMessage = async (message, omitMemory = false) => {
+  const sendMessage = useCallback(async (message, omitMemory = false) => {
     if (!message.trim() || selectedModels.length === 0) return;
 
     setLoading(true);
@@ -191,7 +191,7 @@ const Chatbot = ({ selectedModels, onSendMessage }) => {
     }
 
     setLoading(false);
-  };
+  }, [selectedModels, addMessage, updateQueryStats]);
 
   // Listen for send message events from parent
   React.useEffect(() => {
@@ -199,7 +199,7 @@ const Chatbot = ({ selectedModels, onSendMessage }) => {
       sendMessage(onSendMessage.message, onSendMessage.omitMemory);
       onSendMessage.onSent(); // Notify parent that message was sent
     }
-  }, [onSendMessage]);
+  }, [onSendMessage, sendMessage]);
 
   const formatTime = (ms) => {
     if (ms < 1000) return `${ms}ms`;
