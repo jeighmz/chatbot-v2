@@ -1,19 +1,88 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
-import Chatbot from "./components/Chatbot";
+import ChatContainer from "./components/ChatContainer";
 import ModelList from "./components/ModelList";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
   const [selectedModels, setSelectedModels] = useState([]);
+  const [globalInput, setGlobalInput] = useState("");
+  const [omitMemory, setOmitMemory] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const chatContainerRef = useRef();
+
+  // Show loading screen on every refresh
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Show loading for 2 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleGlobalSend = () => {
+    if (globalInput.trim() && chatContainerRef.current) {
+      chatContainerRef.current.sendToAllChats(globalInput, omitMemory);
+      setGlobalInput("");
+    }
+  };
+
+  const handleGlobalKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleGlobalSend();
+    }
+  };
 
   return (
     <div className="App">
-      <h1>Ask AI</h1>
-      <p> powered by ChatGPT, Groq accelerated TPU inference, Mem0 long-term memory</p>
-      <div className="center-section">
-        <ModelList onSelectionChange={setSelectedModels} />
-        <Chatbot selectedModels={selectedModels} />
-      </div>
+      <LoadingScreen isLoading={isLoading} />
+      
+      {!isLoading && (
+        <>
+          <div className="header-container">
+            <h1>Ask AI</h1>
+            <p> powered by ChatGPT, Groq accelerated TPU inference, Mem0 long-term memory</p>
+          </div>
+          
+          <div className="global-input-container">
+            <div className="global-input-area">
+              <input 
+                type="text" 
+                value={globalInput} 
+                onChange={(e) => setGlobalInput(e.target.value)}
+                onKeyPress={handleGlobalKeyPress}
+                placeholder="Ask all chatbots simultaneously..." 
+                className="global-input"
+              />
+              <div className="global-controls">
+                <label className="memory-checkbox">
+                  <input 
+                    type="checkbox" 
+                    checked={omitMemory}
+                    onChange={(e) => setOmitMemory(e.target.checked)}
+                  />
+                  <span>Omit Memory</span>
+                </label>
+                <button 
+                  onClick={handleGlobalSend}
+                  className="global-send-btn"
+                  disabled={!globalInput.trim()}
+                >
+                  Send to All
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="center-section">
+            <ModelList onSelectionChange={setSelectedModels} />
+            <ChatContainer 
+              ref={chatContainerRef}
+              selectedModels={selectedModels} 
+            />
+          </div>
+        </>
+      )}
     </div>
   );
 }

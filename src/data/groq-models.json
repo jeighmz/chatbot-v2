@@ -2,6 +2,114 @@
     "object": "list",
     "data": [
         {
+            "id": "compound-beta",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Groq",
+            "active": true,
+            "context_window": 131072,
+            "public_apps": null
+        },
+        {
+            "id": "gemma2-9b-it",
+            "object": "model",
+            "created": 1693721698,
+            "owned_by": "Google",
+            "active": true,
+            "context_window": 8192,
+            "public_apps": null
+        },
+        {
+            "id": "llama-3.1-8b-instant",
+            "object": "model",
+            "created": 1693721698,
+            "owned_by": "Meta",
+            "active": true,
+            "context_window": 131072,
+            "public_apps": null
+        },
+        {
+            "id": "llama-3.3-70b-versatile",
+            "object": "model",
+            "created": 1733447754,
+            "owned_by": "Meta",
+            "active": true,
+            "context_window": 32768,
+            "public_apps": null
+        },
+        {
+            "id": "meta-llama/llama-guard-4-12b",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Meta",
+            "active": true,
+            "context_window": 8192,
+            "public_apps": null
+        },
+        {
+            "id": "deepseek-r1-distill-llama-70b",
+            "object": "model",
+            "created": 1737924940,
+            "owned_by": "DeepSeek / Meta",
+            "active": true,
+            "context_window": 131072,
+            "public_apps": null
+        },
+        {
+            "id": "meta-llama/llama-4-maverick-17b-128e-instruct",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Meta",
+            "active": true,
+            "context_window": 131072,
+            "public_apps": null
+        },
+        {
+            "id": "meta-llama/llama-4-scout-17b-16e-instruct",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Meta",
+            "active": true,
+            "context_window": 131072,
+            "public_apps": null
+        },
+        {
+            "id": "meta-llama/llama-prompt-guard-2-22m",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Meta",
+            "active": true,
+            "context_window": 8192,
+            "public_apps": null
+        },
+        {
+            "id": "meta-llama/llama-prompt-guard-2-86m",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Meta",
+            "active": true,
+            "context_window": 8192,
+            "public_apps": null
+        },
+        {
+            "id": "mistral-saba-24b",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Mistral AI",
+            "active": true,
+            "context_window": 32768,
+            "public_apps": null
+        },
+        {
+            "id": "qwen/qwen3-32b",
+            "object": "model",
+            "created": 1735689600,
+            "owned_by": "Alibaba",
+            "active": true,
+            "context_window": 32768,
+            "public_apps": null
+        },
+        {
             "id": "llama-guard-3-8b",
             "object": "model",
             "created": 1693721698,
@@ -29,24 +137,6 @@
             "public_apps": null
         },
         {
-            "id": "whisper-large-v3-turbo",
-            "object": "model",
-            "created": 1728413088,
-            "owned_by": "OpenAI",
-            "active": true,
-            "context_window": 448,
-            "public_apps": null
-        },
-        {
-            "id": "gemma2-9b-it",
-            "object": "model",
-            "created": 1693721698,
-            "owned_by": "Google",
-            "active": true,
-            "context_window": 8192,
-            "public_apps": null
-        },
-        {
             "id": "llama-3.2-1b-preview",
             "object": "model",
             "created": 1727224268,
@@ -62,51 +152,6 @@
             "owned_by": "Meta",
             "active": true,
             "context_window": 8192,
-            "public_apps": null
-        },
-        {
-            "id": "deepseek-r1-distill-llama-70b",
-            "object": "model",
-            "created": 1737924940,
-            "owned_by": "DeepSeek / Meta",
-            "active": true,
-            "context_window": 131072,
-            "public_apps": null
-        },
-        {
-            "id": "llama-3.1-8b-instant",
-            "object": "model",
-            "created": 1693721698,
-            "owned_by": "Meta",
-            "active": true,
-            "context_window": 131072,
-            "public_apps": null
-        },
-        {
-            "id": "llama-3.3-70b-versatile",
-            "object": "model",
-            "created": 1733447754,
-            "owned_by": "Meta",
-            "active": true,
-            "context_window": 32768,
-            "public_apps": null
-        },
-        {
-            "id": "whisper-large-v3",
-            "object": "model",
-            "created": 1693721698,
-            "owned_by": "OpenAI",
-            "active": true,
-            "context_window": 448,
-            "public_apps": null
-        },
-        {
-            "id": "distil-whisper-large-v3-en",
-            "object": "model",
-            "created": 1693721698,
-            "owned_by": "Hugging Face",
-            "active": true,
-            "context_window": 448,
             "public_apps": null
         },
         {
